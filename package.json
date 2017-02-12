@@ -1,7 +1,7 @@
 {
   "name": "fastservice",
-  "version": "0.1.3",
-  "description": "library for creating robust microservices architectures",
+  "version": "0.1.4",
+  "description": "Library for creating robust microservice architectures",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/tsc -w",
