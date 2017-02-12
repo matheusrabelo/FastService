@@ -1,8 +1,8 @@
 # Fastservice
 
 ## About
-A lightweight library for creating **robust microservices architectures** on NodeJS.
-The main idea behind this is sharing data under Redis connections.
+A lightweight library for creating **robust microservice architectures** on NodeJS.
+The main idea behind is sharing data under Redis connections.
 
 ## How to install
 This library is distributed on **npm**. To install, run the following command:
@@ -27,7 +27,7 @@ https://www.npmjs.com/package/ioredis
 }
 ```
 
-## Consuming a service
+## Consuming a microservice
 
 ```javascript
 import fastservice from 'fastservice';
@@ -63,7 +63,7 @@ app.post('/login', (request, response) => {
 });
 ```
 
-## Creating a service
+## Creating a microservice
 
 ```javascript
 import fastservice from 'fastservice';
