@@ -1,6 +1,6 @@
 {
   "name": "fastservice",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "library for creating robust microservices architectures",
   "main": "index.js",
   "scripts": {

@@ -1,5 +1,5 @@
 # Fastservice
-[![Build Status](https://travis-ci.org/matheusrabelo/FastService.svg?branch=master)](https://travis-ci.org/matheusrabelo/FastService)
+[![npm version](https://badge.fury.io/js/fastservice.svg)](https://badge.fury.io/js/fastservice) [![Build Status](https://travis-ci.org/matheusrabelo/FastService.svg?branch=master)](https://travis-ci.org/matheusrabelo/FastService)
 
 ## About
 A lightweight library for creating **robust microservice architectures** on NodeJS.
