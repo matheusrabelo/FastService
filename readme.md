@@ -38,7 +38,7 @@ const app = express();
 const service = fastservice(config);
 
 app.post('/login', (request, response) => {
-    service.handle('login', response.body)
+    service.handle('login', request.body)
         .then((result) => {
             if (result.success) {
                 response.status(200)
