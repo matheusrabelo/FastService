@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "declaration": false,
+        "outDir": "./destination",
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "application/**/*.ts", "services/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules", "tests/**/*.ts"
+    ]
+}

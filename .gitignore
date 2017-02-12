@@ -1,0 +1,5 @@
+node_modules/
+destination/
+coverage/
+*.log
+index.js
