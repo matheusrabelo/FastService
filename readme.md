@@ -5,6 +5,10 @@
 A lightweight library for creating **robust microservice architectures** on NodeJS.
 The main idea behind is sharing data under Redis connections.
 
+This library allows you to create different services on different Node instances that can exchange computed data between each other.
+
+This might be useful for creating a Promise that other Node instance will resolve or reject.
+
 ## How to install
 This library is distributed on **npm**. To install, run the following command:
 ```bash
@@ -17,7 +21,7 @@ All configurations are based on **IoRedis** library. You can see more detailed h
 https://www.npmjs.com/package/ioredis
 ```
 
-### An example of valid configuration
+### An example of valid constructor
 
 ```json 
 {
@@ -39,18 +43,20 @@ const app = express();
 const service = fastservice(config);
 
 app.post('/login', (request, response) => {
+    // This application will pass the responsibility to handle
+    // login to a different service
     service.handle('login', request.body)
         .then((result) => {
             if (result.success) {
                 response.status(200)
                     .json({ 
                         success: true, 
-                        message: 'Successfully logged'
+                        message: 'Successfully logged in'
                     });
             }
-            response.status(400)
+            response.status(401)
                     .json({
-                        success: 401,
+                        success: false,
                         message: 'Login or password incorrect'
                     });
         })
@@ -68,8 +74,10 @@ app.post('/login', (request, response) => {
 
 ```javascript
 import fastservice from 'fastservice';
+import config from './config';
 const service = fastservice(config);
 
+// This application will create a service called login
 service.serve('login', (value) => {
     return new Promise((resolve, reject) => {
         // Any async task here
@@ -83,14 +91,14 @@ service.serve('login', (value) => {
 
 ```
 
-##Scripts
+## Scripts
 - Use **npm run start** to start developing
 - Use **npm run test** to run tests
 
-##Technologies
+## Technologies
 NodeJS, Typescript and IoRedis.
 
-##License
+## License
 MIT
 
 ## Author
