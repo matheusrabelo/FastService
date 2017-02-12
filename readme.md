@@ -5,9 +5,9 @@
 A lightweight library for creating **robust microservice architectures** on NodeJS.
 The main idea behind is sharing data under Redis connections.
 
-This library allows you to create different services on different Node instances that can exchange computed data between each other.
+This library allows you to create different services (including on different Node instances) that can exchange computed data between each other.
 
-This might be useful for creating a Promise that other Node instance will resolve or reject.
+This might be useful for creating a Promise that another Node instance will resolve or reject.
 
 ## How to install
 This library is distributed on **npm**. To install, run the following command:
