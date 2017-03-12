@@ -16,12 +16,12 @@ $ npm install fastservice --save
 ```
 
 ## Configuring
-All configurations are based on **IoRedis** library. You can see more detailed here:
+All configurations are based on **IoRedis** library. You can see more details here:
 ```
 https://www.npmjs.com/package/ioredis
 ```
 
-### An example of valid constructor
+### Valid constructor example
 
 ```json 
 {
