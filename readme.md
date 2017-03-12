@@ -35,12 +35,13 @@ https://www.npmjs.com/package/ioredis
 ## Consuming a microservice
 
 ```javascript
-import fastservice from 'fastservice';
-import config from './config';
-import express from 'express';
+const Fastservice = require('fastservice');
+const config = require('./config');
+const express = require('express');
 
 const app = express();
-const service = fastservice(config);
+const service = new Fastservice(config);
+const port = 8088;
 
 app.post('/login', (request, response) => {
     // This application will pass the responsibility to handle
@@ -68,14 +69,16 @@ app.post('/login', (request, response) => {
                     });
         });
 });
+
+app.listen(port);
 ```
 
 ## Creating a microservice
 
 ```javascript
-import fastservice from 'fastservice';
-import config from './config';
-const service = fastservice(config);
+const Fastservice = require('fastservice');
+const config = require('./config');
+const service = new Fastservice(config);
 
 // This application will create a service called login
 service.serve('login', (value) => {
@@ -85,10 +88,36 @@ service.serve('login', (value) => {
         if (login === 'matheus' && password === '123') {
             resolve({ success: true });
         }
-        reject({ success: false });
+        resolve({ success: false });
     });
 });
+```
 
+## Usage
+
+First, we need to start a Redis server.
+
+```bash
+$ redis-server
+```
+
+For serving a microservice and a consumer, we can use the examples above.
+
+```bash
+$ node creating.js
+``` 
+
+```bash
+$ node webapi.js
+```
+
+Now everything works properly and we can use it as any other Web API.
+
+```bash
+$ curl -X POST -H "Content-Type: application/json" -d '{
+	"login": "matheus",
+	"password": "234"
+}' "http://localhost:8088/login"
 ```
 
 ## Scripts
